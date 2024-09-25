@@ -16,7 +16,10 @@ async function submitIdea(formData) {
 }
 
 async function getIdeas() {
-  return await prisma.idea.findMany();
+  return await prisma.idea.findMany({
+    where: { approved: true },
+    select: { description: true, email: true, link: true },
+  });
 }
 
 export { submitIdea, getIdeas };
