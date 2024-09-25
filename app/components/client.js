@@ -7,7 +7,7 @@ export default async function IdeaList() {
     <ul>
       {ideas.map((idea) => (
         <li key={idea.id} className="flex items-center mb-3">
-          <div className="flex-grow p-2 border rounded">
+          <div className="flex-grow p-2 border">
             {idea.description} by {idea.email}
           </div>
         </li>
