@@ -1,3 +1,5 @@
+import Link from 'next/link';
+
 export default function Login({ action }) {
   return (
     <form action={action} className="max-w-sm mx-auto mt-10">
@@ -7,12 +9,20 @@ export default function Login({ action }) {
         placeholder="Enter password"
         className="w-full p-2 mb-4 border rounded"
       />
-      <button
-        type="submit"
-        className="px-2 py-1 bg-black text-white hover:bg-gray-800"
-      >
-        login
-      </button>
+      <div className="flex space-x-2">
+        <button
+          type="submit"
+          className="px-2 py-1 bg-black text-white hover:bg-gray-800"
+        >
+          login
+        </button>
+        <Link
+          href="/submit"
+          className="px-2 py-1 bg-black text-white hover:bg-gray-800 inline-block"
+        >
+          submit
+        </Link>
+      </div>
     </form>
   );
 }
