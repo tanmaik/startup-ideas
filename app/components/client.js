@@ -1,5 +1,6 @@
 import { getIdeas } from "@/app/actions";
 
+
 export default async function IdeaList() {
   const ideas = await getIdeas();
 
