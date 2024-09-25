@@ -9,14 +9,17 @@ async function submitIdea(formData) {
   const link = formData.get("link");
 
   await prisma.idea.create({
-    data: { description, email, link },
+    data: { description, email, link, approved: true },
   });
 
   redirect("/");
 }
 
 async function getIdeas() {
-  return await prisma.idea.findMany();
+  return await prisma.idea.findMany({
+    where: { approved: true },
+    select: { description: true, email: true, link: true },
+  });
 }
 
 export { submitIdea, getIdeas };

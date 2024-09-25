@@ -1,23 +1,15 @@
-'use client';
+import { getIdeas } from "@/app/actions";
 
-import { useState } from 'react';
 
-export default function IdeaList() {
-  const [items, setItems] = useState([
-    { id: 1, content: 'Idea 1'},
-    { id: 2, content: 'Idea 2'},
-    { id: 3, content: 'Idea 3'},
-  ]);
+export default async function IdeaList() {
+  const ideas = await getIdeas();
 
   return (
     <ul>
-      {items.map(item => (
-        <li key={item.id} className="flex items-center mb-3">
-          <div
-            className="mr-2 w-4 h-4 rounded-full border border-gray-300 flex items-center justify-center focus:outline-none"
-          />
-          <div className="flex-grow p-2 border rounded">
-            {item.content}
+      {ideas.map((idea) => (
+        <li key={idea.id} className="flex items-center mb-3">
+          <div className="flex-grow p-2 border">
+            {idea.description} by {idea.email}
           </div>
         </li>
       ))}
