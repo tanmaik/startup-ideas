@@ -14,4 +14,8 @@ async function submitIdea(formData) {
   redirect("/");
 }
 
-export { submitIdea };
+async function getIdeas() {
+  return await prisma.idea.findMany();
+}
+
+export { submitIdea, getIdeas };
