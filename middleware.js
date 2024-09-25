@@ -1,12 +1,11 @@
 import { NextResponse } from "next/server";
-import Cookies from "js-cookie";
+import { cookies } from "next/headers";
 export function middleware(request) {
-  const cookie = Cookies.get("isLoggedIn");
-  console.log("middleware activated");
+  const cookie = cookies().get("isLoggedIn");
+  console.log("middleware activated, cookie: ", cookie);
   if (cookie?.value !== "true") {
     return NextResponse.redirect(new URL("/login", request.url));
   }
-
   return NextResponse.next();
 }
 

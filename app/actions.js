@@ -9,7 +9,7 @@ async function submitIdea(formData) {
   const link = formData.get("link");
 
   await prisma.idea.create({
-    data: { description, email, link },
+    data: { description, email, link, approved: true },
   });
 
   redirect("/");
