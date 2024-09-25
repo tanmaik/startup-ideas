@@ -9,12 +9,6 @@ export default function IdeaList() {
     { id: 3, content: 'Idea 3'},
   ]);
 
-  const toggleComplete = (id) => {
-    setItems(items.map(item => 
-      item.id === id 
-    ));
-  };
-
   return (
     <ul>
       {items.map(item => (
