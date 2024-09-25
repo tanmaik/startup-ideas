@@ -3,6 +3,7 @@
 import { redirect } from "next/navigation";
 import prisma from "@/lib/prisma";
 async function submitIdea(formData) {
+  console.log("submitIdea", formData);
   const description = formData.get("description");
   const email = formData.get("email");
   const link = formData.get("link");
